@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You - End of Eternity</title>
+  <style>
+    /* Make body and html full height */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #eaeaea;
+      overflow: hidden; /* prevent scrollbars */
+    }
+
+    /* Video background styling */
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      background-size: cover;
+      filter: brightness(0.6); /* optional: darken video for text contrast */
+    }
+
+    /* Content container */
+    .content {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.4); /* optional: semi-transparent overlay */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ff3366;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: #ff3366;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e02a58;
+    }
+  </style>
+</head>
+<body>
+  <!-- Video background -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="assets/Electric Dreamer-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Content -->
+  <div class="content">
+    <h1>Thank You!</h1>
+    <p>Your submission has been received.</p>
+    <button onclick="window.location.href='index.html'">Back to Site</button>
+  </div>
+</body>
+</html>
