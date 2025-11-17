@@ -1,0 +1,11 @@
+
+body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#eaeaea;background:#0b0b0f}
+.hero{height:60vh;background-size:cover;background-position:center;display:flex;align-items:center}
+.hero-inner{background:rgba(0,0,0,0.45);padding:40px;margin-left:40px}
+.site-nav{display:flex;gap:12px;padding:12px;background:#07070a}
+.site-nav a{color:#9fd; text-decoration:none}
+.btn{background:#ff3366;color:white;padding:10px 14px;border-radius:6px;text-decoration:none}
+.merch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:16px}
+.merch-card{background:#111;padding:12px;border-radius:8px}
+.qty{display:flex;gap:8px;align-items:center}
+.cart{position:fixed;right:12px;bottom:12px;background:#111;padding:12px;border-radius:8px;width:320px}

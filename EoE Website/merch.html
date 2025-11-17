@@ -1,0 +1,124 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Merch — End of Eternity</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="music.html">Music</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="merch.html">Merch</a>
+  </nav>
+
+  <main>
+    <h2>Merch</h2>
+    <div class="merch-grid" id="merchGrid"></div>
+
+    <div class="cart" id="cart">
+      <h4>Cart</h4>
+      <div id="cartItems"></div>
+      <p>Total: $<span id="cartTotal">0.00</span></p>
+      <div id="paypal-cart"></div>
+    </div>
+  </main>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAYXiJcYXG0sCzx282KYspXtHfq4ARVIetA9RN7rjgaTfJX85s4t51hwdqWh3UirggjeUB3Cvb9gb5E80&currency=USD"></script>
+  <script src="config.js"></script>
+  <script>
+  // Simple merch + cart demo using EOE_CONFIG
+  const merchGrid = document.getElementById('merchGrid');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  let cart = JSON.parse(localStorage.getItem('eoe_cart')||'[]');
+
+  function renderProducts(){
+    merchGrid.innerHTML='';
+    EOE_CONFIG.PRODUCTS.forEach(p => {
+      const card = document.createElement('div'); card.className='merch-card';
+      card.dataset.sku = p.sku; card.dataset.price = p.price;
+      card.innerHTML = `
+        <img src="${p.image||'assets/eoe_comic_merch_section.png'}" alt="${p.title}" style="width:100%;height:160px;object-fit:cover;border-radius:6px">
+        <h4>${p.title}</h4>
+        <p>$${p.price.toFixed(2)}</p>
+        <div class="qty">
+          <button class="qty-decr">−</button>
+          <input class="qty-input" type="number" min="1" max="10" value="1">
+          <button class="qty-incr">+</button>
+        </div>
+        <button class="add-cart btn">Add to cart</button>
+        `;
+      merchGrid.appendChild(card);
+
+      const incr = card.querySelector('.qty-incr');
+      const decr = card.querySelector('.qty-decr');
+      const input = card.querySelector('.qty-input');
+      incr.onclick = ()=> input.value = Math.min(10, Number(input.value)+1);
+      decr.onclick = ()=> input.value = Math.max(1, Number(input.value)-1);
+      card.querySelector('.add-cart').onclick = ()=>{
+        addToCart(p.sku, p.title, p.price, parseInt(input.value,10)||1, p.type, p.download);
+      };
+    });
+  }
+
+  function addToCart(sku,title,price,qty,type,download){
+    const existing = cart.find(i=>i.sku===sku);
+    if(existing){ existing.qty = Math.min(10, existing.qty+qty); } else { cart.push({sku,title,price,qty,type,download}); }
+    saveRenderCart();
+  }
+
+  function saveRenderCart(){
+    localStorage.setItem('eoe_cart', JSON.stringify(cart));
+    renderCart();
+  }
+
+  function renderCart(){
+    cartItemsEl.innerHTML = '';
+    let total = 0;
+    cart.forEach((it, idx)=>{
+      total += it.price * it.qty;
+      const div = document.createElement('div');
+      div.innerHTML = `${it.title} x ${it.qty} — $${(it.price*it.qty).toFixed(2)} <button data-idx="${idx}">Remove</button>`;
+      cartItemsEl.appendChild(div);
+      div.querySelector('button').onclick = e=>{ cart.splice(idx,1); saveRenderCart(); };
+    });
+    cartTotalEl.textContent = total.toFixed(2);
+    renderPaypalCart(total);
+  }
+
+  function renderPaypalCart(total){
+    document.getElementById('paypal-cart').innerHTML='';
+    if(cart.length===0) return;
+    paypal.Buttons({
+      createOrder: (data, actions) => {
+        const items = cart.map(i=>({ name: i.title, unit_amount: { currency_code: 'USD', value: i.price.toFixed(2) }, quantity: i.qty.toString() }));
+        return actions.order.create({
+          purchase_units:[{ amount:{ currency_code:'USD', value: total.toFixed(2), breakdown:{ item_total:{ currency_code:'USD', value: total.toFixed(2) } } }, items }]
+        });
+      },
+      onApprove: (data, actions) => actions.order.capture().then(details=>{
+        // Show simple confirmation and reveal digital downloads
+        const purchasedDownloads = cart.filter(i=>i.type==='digital');
+        let msg = 'Thank you for your purchase!
+Order ID: '+data.orderID+'
+';
+        if(purchasedDownloads.length) msg += '
+Digital downloads:
+' + purchasedDownloads.map(d=>`${d.title}: ${d.download||'(no link supplied)'}`).join('
+');
+        alert(msg);
+        cart = []; saveRenderCart();
+      })
+    }).render('#paypal-cart');
+  }
+
+  // init
+  renderProducts(); renderCart();
+  </script>
+</body>
+</html>
