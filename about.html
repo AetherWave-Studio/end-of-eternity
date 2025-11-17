@@ -33,6 +33,41 @@
         <strong>AI Music • Human Soul • Immersive Sound.</strong>
         End of Eternity is one of our flagship explorations of that vision.
       </p>
+	  <div>
+	  <span class="inline-block-item">
+	  <h2>Contact Us</h2>
+			
+			<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+			  <input type="hidden" name="form-name" value="contact" />
+			  <p style="display:none;">
+				<label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+			  </p>
+			  <p>
+				<label>Your Name: <input type="text" name="name" required /></label>
+			  </p>
+			  <p>
+				<label>Your Email: <input type="email" name="email" required /></label>
+			  </p>
+			  <p>
+				<label>Message: <textarea name="message" required></textarea></label>
+			  </p>
+			  <p>
+				<button type="submit">Send</button>
+			  </p>
+			</form>
+			<form action="https://YOUR_MAILCHIMP_POST_URL" method="post" target="_blank" novalidate>
+			<h3>Join Our Mailing List</h3>
+				  <p>
+					<label>Email: <input type="email" name="EMAIL" required /></label>
+				  </p>
+				  <p>
+					<button type="submit">Subscribe</button>
+				  </p>
+				</form>
+			</span>
+				
+			
+	  </div>
     </main>
   </body>
 </html>
