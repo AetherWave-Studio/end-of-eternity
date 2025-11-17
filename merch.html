@@ -104,13 +104,8 @@
       onApprove: (data, actions) => actions.order.capture().then(details=>{
         // Show simple confirmation and reveal digital downloads
         const purchasedDownloads = cart.filter(i=>i.type==='digital');
-        let msg = 'Thank you for your purchase!
-Order ID: '+data.orderID+'
-';
-        if(purchasedDownloads.length) msg += '
-Digital downloads:
-' + purchasedDownloads.map(d=>`${d.title}: ${d.download||'(no link supplied)'}`).join('
-');
+        let msg = 'Thank you for your purchase! Order ID: '+data.orderID+'';
+        if(purchasedDownloads.length) msg += 'Digital downloads:' + purchasedDownloads.map(d=>`${d.title}: ${d.download||'(no link supplied)'}`).join('');
         alert(msg);
         cart = []; saveRenderCart();
       })
