@@ -82,5 +82,17 @@
     <p>Your submission has been received.</p>
     <button onclick="window.location.href='index.html'">Back to Site</button>
   </div>
-</body>
+
+
+<script>
+  window.onload = function() {
+    const link = document.createElement('a');
+    link.href = 'assets/Open_Heart_Promotional.mp3';
+    link.download = 'Open_Heart_Promotional.mp3';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  </script>
+  </body>
 </html>
