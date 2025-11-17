@@ -25,8 +25,8 @@ body {
 }
 
 /* Music */
-.page-music 
-  background: url("assets/music-bg.jpg") center center / cover no-repeat fixed;
+.page-music {
+  background: url("assets/eoe_comic_gallery_section.png") center center / cover no-repeat fixed;
 }
 
 /* Gallery*/
@@ -81,4 +81,29 @@ body {
   max-width: 900px;
   color: #f5f5f5;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+}
+.page-gallery {
+  min-height: 100vh;
+  background: url("assets/eoe_website_gallery_section.png") center center / cover no-repeat fixed; /* adjust filename */
+}
+
+/* Gallery layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 7rem 2.5rem 2.5rem; /* space for header */
+}
+
+.gallery-item {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
