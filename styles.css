@@ -29,10 +29,11 @@ body {
   background: url("assets/eoe_comic_gallery_section.png") center center / cover no-repeat fixed;
 }
 
-/* Gallery*/
+/* Gallery */
 .page-gallery {
   background: url("assets/eoe_comic_gallery_section.png") center center / cover no-repeat fixed;
 }
+
 /* Merch*/
 .page-merch {
   background: url("assets/eoe_comic_merch_section.png") center center / cover no-repeat fixed;
@@ -82,10 +83,7 @@ body {
   color: #f5f5f5;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
 }
-.page-gallery {
-  min-height: 100vh;
-  background: url("assets/eoe_website_gallery_section.png") center center / cover no-repeat fixed; /* adjust filename */
-}
+
 
 /* Gallery layout */
 .gallery-grid {
