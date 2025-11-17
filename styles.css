@@ -9,3 +9,76 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#eaeaea;background:#0
 .merch-card{background:#111;padding:12px;border-radius:8px}
 .qty{display:flex;gap:8px;align-items:center}
 .cart{position:fixed;right:12px;bottom:12px;background:#111;padding:12px;border-radius:8px;width:320px}
+/* Full-page background layouts for each main page */
+body {
+  min-height: 100vh;
+}
+
+/* Home */
+.page-home {
+  background: url("assets/eoe_website_hero_section.png") center center / cover no-repeat fixed;
+}
+
+/* About */
+.page-about {
+  background: url("assets/eoe_comic_hero_section.png") center center / cover no-repeat fixed;
+}
+
+/* Music */
+.page-music 
+  background: url("assets/music-bg.jpg") center center / cover no-repeat fixed;
+}
+
+/* Gallery*/
+.page-gallery {
+  background: url("assets/eoe_comic_gallery_section.png") center center / cover no-repeat fixed;
+}
+/* Merch*/
+.page-merch {
+  background: url("assets/eoe_comic_merch_section.png") center center / cover no-repeat fixed;
+}
+
+/* Global layout refinements */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
+}
+
+/* Re-style nav to feel more like the concept */
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  background: transparent;
+}
+
+.site-nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.15rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav a:hover {
+  border-bottom-color: #e0aaff;
+  color: #e0aaff;
+}
+
+/* Ensure main content is readable over backgrounds */
+.page-content {
+  padding: 7rem 2.5rem 2.5rem;
+  max-width: 900px;
+  color: #f5f5f5;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+}

@@ -18,7 +18,7 @@ Deploying to Netlify (drag & drop):
 2. If you prefer Git-based deploy, push these files to your repo and connect Netlify to the repo.
 
 Notes:
-- For testing purchases, use a PayPal sandbox client-id. For production replace with live client-id.
+- For testing purchases, use a test. For production replace with live.
 - WAV previews are large — consider MP3 preview versions to reduce bandwidth.
 
 Files created by the assistant for you to upload to GitHub/Netlify.
