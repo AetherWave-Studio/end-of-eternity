@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>End of Eternity - Synthwave | Gothic | Energy</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- jQuery required for Mailchimp validation -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script
         id="mcjs">!function (c, h, i, m, p) { m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p) }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/f4143bd7dd66428193375f907/f176ded243776403d79b75c15.js");</script>
 </head>
@@ -35,9 +37,18 @@
             <div class="email-signup">
                 <h3>Stay Updated</h3>
                 <p>Sign up for news, releases, and exclusive content.</p>
-                <form id="mc-embedded-subscribe-form" class="signup-form">
+                <form action="https://aetherwavestudio.us12.list-manage.com/subscribe/post?u=3e5f18b4f8eaf6c2a8a275540&amp;id=e31fadc4a3&amp;f_id=008df5e0f0"
+                      method="post"
+                      id="mc-embedded-subscribe-form"
+                      name="mc-embedded-subscribe-form"
+                      class="signup-form validate"
+                      target="_blank">
                     <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
-                    <button type="submit" class="btn">Subscribe</button>
+                    <!-- Bot protection - hidden from real users -->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_3e5f18b4f8eaf6c2a8a275540_e31fadc4a3" tabindex="-1" value="">
+                    </div>
+                    <button type="submit" name="subscribe" class="btn">Subscribe</button>
                 </form>
                 <div id="mce-responses">
                     <div id="mce-error-response" style="display:none"></div>
@@ -52,9 +63,6 @@
                     window.fnames = new Array();
                     window.ftypes = new Array();
                     fnames[0] = 'EMAIL'; ftypes[0] = 'email';
-                    /*
-                     * Translations and other Mailchimp validation code here
-                     */
                 }(jQuery));
                 var $mcj = jQuery.noConflict(true);
             </script>
@@ -68,6 +76,4 @@
     <script src="config.js"></script>
 </body>
 
-
 </html>
-
