@@ -1,3 +1,4 @@
+<script>if(/[?&]tbd(=|&|$)/.test(location.search))document.documentElement.classList.add('show-tbd')</script>
 <title>End of Eternity EPK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +39,11 @@ p{margin:0}
 .eyebrow::before{content:"> ";color:var(--cyan)}
 .lede{font-size:1.18rem;color:var(--chrome);max-width:62ch}
 .muted{color:var(--muted)}
-.tbd{display:inline-block;font-family:var(--mono);font-size:.78em;font-style:normal;font-weight:400;letter-spacing:0;text-transform:none;color:var(--magenta);background:var(--magenta-soft);border:1px dashed rgba(226,57,158,.6);border-radius:4px;padding:1px 7px;line-height:1.5;vertical-align:baseline}
+/* Placeholders stay in the source for editing but are hidden on the live page.
+   Add ?tbd to the URL (endofeternity.band/epk/?tbd) to show them while updating. */
+.tbd,.tbd-wrap{display:none}
+html.show-tbd .tbd-wrap{display:inline}
+html.show-tbd .tbd{display:inline-block;font-family:var(--mono);font-size:.78em;font-style:normal;font-weight:400;letter-spacing:0;text-transform:none;color:var(--magenta);background:var(--magenta-soft);border:1px dashed rgba(226,57,158,.6);border-radius:4px;padding:1px 7px;line-height:1.5;vertical-align:baseline}
 section{padding-block:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
 .sec-head{display:grid;gap:12px;margin-bottom:clamp(28px,4vw,44px)}
 
@@ -619,7 +624,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="sec-head">
         <p class="eyebrow">Assets</p>
         <h2>Photos, logo and art</h2>
-        <p class="muted">High-res files: <span class="tbd">[TBD: shared folder link]</span> Please credit photographers as listed.</p>
+        <p class="muted"><span class="tbd-wrap">High-res files: <span class="tbd">[TBD: shared folder link]</span> </span>Please credit photographers as listed.</p>
       </div>
       <div class="gallery">
         <figure><img class="contain" src="img/logo.png" alt="Primary logo" loading="lazy"><figcaption class="credit">Primary logo (8000 px, transparent)</figcaption></figure>
@@ -669,7 +674,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </main>
 
 <footer>
-  <div class="wrap"><span>End of Eternity / Denver, Colorado / The End is Near.</span><span>EPK v1, Oct 2026. Items marked <span class="tbd">[TBD]</span> are placeholders.</span></div>
+  <div class="wrap"><span>End of Eternity / Denver, Colorado / The End is Near.</span><span>EPK v1, Oct 2026.<span class="tbd-wrap"> Items marked <span class="tbd">[TBD]</span> are placeholders.</span></span></div>
 </footer>
 
 <script>
