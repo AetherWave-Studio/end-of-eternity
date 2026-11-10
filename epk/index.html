@@ -120,6 +120,17 @@ section{padding-block:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
 .chip{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--chrome);background:var(--void)}
 @media (max-width:760px){.release{grid-template-columns:1fr}.release img{max-width:340px}}
 
+/* free downloads */
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.dl{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:clamp(16px,2.4vw,22px);display:grid;gap:12px;align-content:start}
+.dl h3{font-size:clamp(1.5rem,2.6vw,1.9rem)}
+.dl .d{font-family:var(--mono);font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.dl audio{width:100%;height:40px}
+.dl .btn{justify-content:center;min-height:44px}
+.dl.soon{border-style:dashed;border-color:rgba(95,220,236,.45);background:var(--cyan-soft)}
+.dl.soon .kicker{color:var(--cyan)}
+@media (max-width:860px){.dl-grid{grid-template-columns:1fr}}
+
 /* video */
 .videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .video{display:grid;gap:10px;text-decoration:none;color:var(--text)}
@@ -226,7 +237,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <a class="mark" href="#top">End <span>of</span> Eternity</a>
     <nav aria-label="Sections">
-      <a href="#bio">Bio</a><a href="#music">Music</a><a href="#watch">Watch</a><a href="#live">Live</a><a href="#tech">Tech</a><a href="#assets">Assets</a><a href="#contact">Booking</a>
+      <a href="#bio">Bio</a><a href="#music">Music</a><a href="#downloads">Free MP3s</a><a href="#watch">Watch</a><a href="#live">Live</a><a href="#tech">Tech</a><a href="#assets">Assets</a><a href="#contact">Booking</a>
     </nav>
   </div>
 </header>
@@ -257,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="fact"><dt>Sound</dt><dd>Gothic synth-rock / darkwave</dd></div>
         <div class="fact"><dt>Lineup</dt><dd>Vocals/synth, guitar, drums</dd></div>
         <div class="fact"><dt>Set length</dt><dd>45 to 55 min</dd></div>
-        <div class="fact"><dt>Latest</dt><dd>"Haunted Dreams" single <span class="tbd">[TBD: date]</span></dd></div>
+        <div class="fact"><dt>Latest</dt><dd>"Haunted Dreams" single, October 31, 2026</dd></div>
         <div class="fact"><dt>Album</dt><dd>Year Zero</dd></div>
       </dl>
     </div>
@@ -320,11 +331,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="releases">
         <article class="release">
-          <img src="img/logo.png" alt="Haunted Dreams single: cover art to come" style="object-fit:contain;padding:12%;background:var(--panel)">
+          <img src="img/haunted_dreams.jpg" alt="Haunted Dreams single cover: a cloaked figure wading into a red sea under a blood moon">
           <div class="meta">
-            <p class="kicker">Single / 2026 <span class="tbd">[TBD: release date]</span></p>
+            <p class="kicker">Single / October 31, 2026</p>
             <h3>Haunted Dreams</h3>
-            <p>The latest single, from the sessions for the self-titled album. <span class="tbd">[TBD: one line on the song, cover art, Spotify and Apple Music links]</span></p>
+            <p>The latest single, from the sessions for the self-titled album.</p>
+            <div class="links">
+              <a href="https://open.spotify.com/album/20zh2WqF6BoPTXHsBUjKjJ">Spotify</a>
+              <a href="#downloads">Free MP3</a>
+            </div>
           </div>
         </article>
         <article class="release">
@@ -336,7 +351,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <div class="links">
               <a href="https://open.spotify.com/album/4bKsn7zsobV1m476SPSH8e">Spotify</a>
               <a href="https://music.apple.com/us/album/shallow-end-single/6782144304">Apple Music</a>
-              <a href="https://www.youtube.com/watch?v=tzFkhOJhHeU">Promo video</a>
             </div>
           </div>
         </article>
@@ -370,6 +384,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">Neon Sky</span><span class="chip">SLPD</span><span class="chip">Open Heart</span><span class="chip">Haunted Dreams</span><span class="chip">Post Calamity</span><span class="chip">Immortal</span><span class="chip">Succubus</span><span class="chip">Ghost (Gunship cover)</span><span class="chip">It's No Good (Depeche Mode cover)</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="downloads">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Free MP3s</p>
+        <h2>Free downloads</h2>
+      </div>
+      <p class="muted" style="margin-bottom:20px">Free for fans, press and radio. Download, play and share them.</p>
+      <div class="dl-grid">
+        <article class="dl">
+          <p class="kicker">Single / Oct 31, 2026</p>
+          <h3>Haunted Dreams</h3>
+          <span class="d">MP3 / 4:36</span>
+          <audio controls preload="none" src="audio/End-of-Eternity-Haunted-Dreams.mp3"></audio>
+          <a class="btn primary" href="audio/End-of-Eternity-Haunted-Dreams.mp3" download>Download MP3</a>
+        </article>
+        <article class="dl">
+          <p class="kicker">Single / June 20, 2026</p>
+          <h3>Shallow End</h3>
+          <span class="d">MP3 / 4:07</span>
+          <audio controls preload="none" src="audio/End-of-Eternity-Shallow-End.mp3"></audio>
+          <a class="btn primary" href="audio/End-of-Eternity-Shallow-End.mp3" download>Download MP3</a>
+        </article>
+        <article class="dl soon">
+          <p class="kicker">Coming next</p>
+          <h3>All Night</h3>
+          <span class="d">MP3 / soon</span>
+          <p class="muted">The next free download. Check back soon.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -584,6 +630,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <figure><img src="img/lostlake.jpg" alt="Lost Lake live" loading="lazy"><figcaption class="credit">Lost Lake. Photo: William Webb</figcaption></figure>
         <figure><img src="img/year_zero.jpg" alt="Year Zero cover" loading="lazy"><figcaption class="credit">Year Zero cover</figcaption></figure>
         <figure><img src="img/shallow_end.jpg" alt="Shallow End cover" loading="lazy"><figcaption class="credit">Shallow End cover (4K)</figcaption></figure>
+        <figure><img src="img/haunted_dreams.jpg" alt="Haunted Dreams cover" loading="lazy"><figcaption class="credit">Haunted Dreams cover</figcaption></figure>
       </div>
       <div class="merch" aria-label="Merch">
         <div><b>Year Zero CD</b><span>$10</span></div>
