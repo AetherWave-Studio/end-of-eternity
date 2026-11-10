@@ -317,7 +317,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </article>
         <article class="member">
           <img src="img/live_guitar.jpg" alt="Guitarist mid-solo under purple stage light">
-          <div class="info"><h3>Drew Froehlich</h3><p class="role">Guitars</p><p>Rhythm and lead guitar, and the engineer behind the EoE home studio. Former member of Zen Conspiracy. <span class="tbd">[TBD: influences, other projects]</span></p></div>
+          <div class="info"><h3>Drew Froehlich</h3><p class="role">Guitars</p><p>Rhythm and lead guitar, and the engineer behind the EoE home studio. Former member of ELETE and Zen Conspiracy. <span class="tbd">[TBD: influences, other projects]</span></p></div>
         </article>
         <article class="member">
           <img src="img/live_drums.jpg" alt="Drummer at the kit under a giant black-and-white face projection">
@@ -343,6 +343,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <p>The latest single, from the sessions for the self-titled album.</p>
             <div class="links">
               <a href="https://open.spotify.com/album/20zh2WqF6BoPTXHsBUjKjJ">Spotify</a>
+              <a href="https://music.apple.com/us/album/haunted-dreams-single/6828699066">Apple Music</a>
+              <a href="https://amazon.com/music/player/albums/B0HPS5BF9J">Amazon Music</a>
+              <a href="https://tidal.com/album/574512890">Tidal</a>
               <a href="#downloads">Free MP3</a>
             </div>
           </div>
@@ -477,7 +480,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="table-wrap">
         <table>
           <thead><tr><th>Date</th><th>Venue</th><th>City</th><th>With</th></tr></thead>
-          <tbody>
+          <tbody id="show-list">
             <tr><td class="date">2026-10-25</td><td>Haunted Dreams release party (livestream)</td><td>Online</td><td>Single release party. <a href="https://www.facebook.com/share/v/1TyhMSVWpN/">Watch the replay</a></td></tr>
             <tr><td class="date">2026-06-28</td><td>Mad Scientist Live with Gigi Burdo (stream)</td><td>Online</td><td>Guest feature, 85 min. <a href="https://www.youtube.com/watch?v=fBuosfNEJIY">Watch the replay</a></td></tr>
             <tr><td class="date">2026-02-21</td><td>Lost Lake Lounge</td><td>Denver, CO</td><td>Our Darkest Sin, Partialist, Them Heavy Stones</td></tr>
@@ -505,7 +508,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <div class="stat"><b>1,298</b><span>Facebook followers</span></div>
             <div class="stat"><b>12K+</b><span>YouTube views, all time</span></div>
             <div class="stat"><b>222</b><span>Instagram followers</span></div>
-            <div class="stat"><b>9</b><span>Shows and streams, 2025-26</span></div>
+            <div class="stat"><b id="show-count">10</b><span>Shows and streams, 2025-26</span></div>
           </div>
           <p class="draft-note" style="margin-top:12px">Counts as of Oct 20, 2026.</p>
         </div>
@@ -701,3 +704,4 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
   });
 });
 </script>
+<script>/* Shows and streams count keys off the show list: every 2025-26 row. */(function(){var rows=document.querySelectorAll("#show-list tr"),n=0;rows.forEach(function(tr){var d=tr.querySelector("td.date");if(d&&/^202[56]-/.test(d.textContent.trim()))n++;});var el=document.getElementById("show-count");if(el&&n)el.textContent=n;})();</script>
